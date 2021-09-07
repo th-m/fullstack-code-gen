@@ -1,0 +1,45 @@
+directive @UserAPI on FIELD_DEFINITION
+input CreateUserRequestInput {
+	user: UserInput
+}
+input DeleteUserRequestInput {
+	id: String
+}
+input GetUserRequestInput {
+	id: String
+}
+input ListUsersRequestInput {
+	filters: UserInput
+}
+type ListUsersResponse {
+	users: [User!]
+}
+type Mutation {
+	userAPIListUsers(in: ListUsersRequestInput): ListUsersResponse
+	userAPIGetUser(in: GetUserRequestInput): User
+	userAPICreateUser(in: CreateUserRequestInput): User
+	userAPIUpdateUser(in: UpdateUserRequestInput): User
+	userAPIDeleteUser(in: DeleteUserRequestInput): Boolean
+}
+type Query {
+	dummy: Boolean
+}
+input UpdateUserRequestInput {
+	user: UserInput
+}
+"""
+ User holds details and datetime info for an event that does not repeat.
+
+"""
+type User {
+	id: String
+	name: String
+}
+"""
+ User holds details and datetime info for an event that does not repeat.
+
+"""
+input UserInput {
+	id: String
+	name: String
+}

@@ -6,7 +6,7 @@
   },
   "tags": [
     {
-      "name": "ScheduleAPI",
+      "name": "UserAPI",
       "externalDocs": {
         "description": "This is an example swagger definition",
         "url": "th-m.codes"
@@ -22,7 +22,7 @@
   "paths": {
     "/users": {
       "get": {
-        "operationId": "ScheduleAPI_ListUsers",
+        "operationId": "UserAPI_ListUsers",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -56,7 +56,7 @@
         ]
       },
       "post": {
-        "operationId": "ScheduleAPI_CreateUsers",
+        "operationId": "UserAPI_CreateUser",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -88,7 +88,7 @@
     },
     "/users/{id}": {
       "get": {
-        "operationId": "ScheduleAPI_GetUsers",
+        "operationId": "UserAPI_GetUser",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -116,7 +116,7 @@
         ]
       },
       "delete": {
-        "operationId": "ScheduleAPI_DeleteUsers",
+        "operationId": "UserAPI_DeleteUser",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -146,7 +146,7 @@
     },
     "/users/{user.id}": {
       "put": {
-        "operationId": "ScheduleAPI_UpdateUsers",
+        "operationId": "UserAPI_UpdateUser",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -225,7 +225,7 @@
     "usersListUsersResponse": {
       "type": "object",
       "properties": {
-        "events": {
+        "users": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/usersUser"

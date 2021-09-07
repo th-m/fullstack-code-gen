@@ -15,228 +15,228 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// ScheduleAPIClient is the client API for ScheduleAPI service.
+// UserAPIClient is the client API for UserAPI service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ScheduleAPIClient interface {
+type UserAPIClient interface {
 	ListUsers(ctx context.Context, in *ListUsersRequest, opts ...grpc.CallOption) (*ListUsersResponse, error)
-	GetUsers(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*User, error)
-	CreateUsers(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*User, error)
-	UpdateUsers(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*User, error)
-	DeleteUsers(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
+	GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*User, error)
+	CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*User, error)
+	UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*User, error)
+	DeleteUser(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 }
 
-type scheduleAPIClient struct {
+type userAPIClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewScheduleAPIClient(cc grpc.ClientConnInterface) ScheduleAPIClient {
-	return &scheduleAPIClient{cc}
+func NewUserAPIClient(cc grpc.ClientConnInterface) UserAPIClient {
+	return &userAPIClient{cc}
 }
 
-func (c *scheduleAPIClient) ListUsers(ctx context.Context, in *ListUsersRequest, opts ...grpc.CallOption) (*ListUsersResponse, error) {
+func (c *userAPIClient) ListUsers(ctx context.Context, in *ListUsersRequest, opts ...grpc.CallOption) (*ListUsersResponse, error) {
 	out := new(ListUsersResponse)
-	err := c.cc.Invoke(ctx, "/users.ScheduleAPI/ListUsers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/users.UserAPI/ListUsers", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scheduleAPIClient) GetUsers(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*User, error) {
+func (c *userAPIClient) GetUser(ctx context.Context, in *GetUserRequest, opts ...grpc.CallOption) (*User, error) {
 	out := new(User)
-	err := c.cc.Invoke(ctx, "/users.ScheduleAPI/GetUsers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/users.UserAPI/GetUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scheduleAPIClient) CreateUsers(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*User, error) {
+func (c *userAPIClient) CreateUser(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*User, error) {
 	out := new(User)
-	err := c.cc.Invoke(ctx, "/users.ScheduleAPI/CreateUsers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/users.UserAPI/CreateUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scheduleAPIClient) UpdateUsers(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*User, error) {
+func (c *userAPIClient) UpdateUser(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*User, error) {
 	out := new(User)
-	err := c.cc.Invoke(ctx, "/users.ScheduleAPI/UpdateUsers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/users.UserAPI/UpdateUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *scheduleAPIClient) DeleteUsers(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
+func (c *userAPIClient) DeleteUser(ctx context.Context, in *DeleteUserRequest, opts ...grpc.CallOption) (*emptypb.Empty, error) {
 	out := new(emptypb.Empty)
-	err := c.cc.Invoke(ctx, "/users.ScheduleAPI/DeleteUsers", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/users.UserAPI/DeleteUser", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ScheduleAPIServer is the server API for ScheduleAPI service.
-// All implementations should embed UnimplementedScheduleAPIServer
+// UserAPIServer is the server API for UserAPI service.
+// All implementations should embed UnimplementedUserAPIServer
 // for forward compatibility
-type ScheduleAPIServer interface {
+type UserAPIServer interface {
 	ListUsers(context.Context, *ListUsersRequest) (*ListUsersResponse, error)
-	GetUsers(context.Context, *GetUserRequest) (*User, error)
-	CreateUsers(context.Context, *CreateUserRequest) (*User, error)
-	UpdateUsers(context.Context, *UpdateUserRequest) (*User, error)
-	DeleteUsers(context.Context, *DeleteUserRequest) (*emptypb.Empty, error)
+	GetUser(context.Context, *GetUserRequest) (*User, error)
+	CreateUser(context.Context, *CreateUserRequest) (*User, error)
+	UpdateUser(context.Context, *UpdateUserRequest) (*User, error)
+	DeleteUser(context.Context, *DeleteUserRequest) (*emptypb.Empty, error)
 }
 
-// UnimplementedScheduleAPIServer should be embedded to have forward compatible implementations.
-type UnimplementedScheduleAPIServer struct {
+// UnimplementedUserAPIServer should be embedded to have forward compatible implementations.
+type UnimplementedUserAPIServer struct {
 }
 
-func (UnimplementedScheduleAPIServer) ListUsers(context.Context, *ListUsersRequest) (*ListUsersResponse, error) {
+func (UnimplementedUserAPIServer) ListUsers(context.Context, *ListUsersRequest) (*ListUsersResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListUsers not implemented")
 }
-func (UnimplementedScheduleAPIServer) GetUsers(context.Context, *GetUserRequest) (*User, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetUsers not implemented")
+func (UnimplementedUserAPIServer) GetUser(context.Context, *GetUserRequest) (*User, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
 }
-func (UnimplementedScheduleAPIServer) CreateUsers(context.Context, *CreateUserRequest) (*User, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateUsers not implemented")
+func (UnimplementedUserAPIServer) CreateUser(context.Context, *CreateUserRequest) (*User, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateUser not implemented")
 }
-func (UnimplementedScheduleAPIServer) UpdateUsers(context.Context, *UpdateUserRequest) (*User, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateUsers not implemented")
+func (UnimplementedUserAPIServer) UpdateUser(context.Context, *UpdateUserRequest) (*User, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateUser not implemented")
 }
-func (UnimplementedScheduleAPIServer) DeleteUsers(context.Context, *DeleteUserRequest) (*emptypb.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteUsers not implemented")
+func (UnimplementedUserAPIServer) DeleteUser(context.Context, *DeleteUserRequest) (*emptypb.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteUser not implemented")
 }
 
-// UnsafeScheduleAPIServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ScheduleAPIServer will
+// UnsafeUserAPIServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to UserAPIServer will
 // result in compilation errors.
-type UnsafeScheduleAPIServer interface {
-	mustEmbedUnimplementedScheduleAPIServer()
+type UnsafeUserAPIServer interface {
+	mustEmbedUnimplementedUserAPIServer()
 }
 
-func RegisterScheduleAPIServer(s grpc.ServiceRegistrar, srv ScheduleAPIServer) {
-	s.RegisterService(&ScheduleAPI_ServiceDesc, srv)
+func RegisterUserAPIServer(s grpc.ServiceRegistrar, srv UserAPIServer) {
+	s.RegisterService(&UserAPI_ServiceDesc, srv)
 }
 
-func _ScheduleAPI_ListUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserAPI_ListUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListUsersRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScheduleAPIServer).ListUsers(ctx, in)
+		return srv.(UserAPIServer).ListUsers(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/users.ScheduleAPI/ListUsers",
+		FullMethod: "/users.UserAPI/ListUsers",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScheduleAPIServer).ListUsers(ctx, req.(*ListUsersRequest))
+		return srv.(UserAPIServer).ListUsers(ctx, req.(*ListUsersRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScheduleAPI_GetUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserAPI_GetUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScheduleAPIServer).GetUsers(ctx, in)
+		return srv.(UserAPIServer).GetUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/users.ScheduleAPI/GetUsers",
+		FullMethod: "/users.UserAPI/GetUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScheduleAPIServer).GetUsers(ctx, req.(*GetUserRequest))
+		return srv.(UserAPIServer).GetUser(ctx, req.(*GetUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScheduleAPI_CreateUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserAPI_CreateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScheduleAPIServer).CreateUsers(ctx, in)
+		return srv.(UserAPIServer).CreateUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/users.ScheduleAPI/CreateUsers",
+		FullMethod: "/users.UserAPI/CreateUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScheduleAPIServer).CreateUsers(ctx, req.(*CreateUserRequest))
+		return srv.(UserAPIServer).CreateUser(ctx, req.(*CreateUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScheduleAPI_UpdateUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserAPI_UpdateUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScheduleAPIServer).UpdateUsers(ctx, in)
+		return srv.(UserAPIServer).UpdateUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/users.ScheduleAPI/UpdateUsers",
+		FullMethod: "/users.UserAPI/UpdateUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScheduleAPIServer).UpdateUsers(ctx, req.(*UpdateUserRequest))
+		return srv.(UserAPIServer).UpdateUser(ctx, req.(*UpdateUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ScheduleAPI_DeleteUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserAPI_DeleteUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DeleteUserRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ScheduleAPIServer).DeleteUsers(ctx, in)
+		return srv.(UserAPIServer).DeleteUser(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/users.ScheduleAPI/DeleteUsers",
+		FullMethod: "/users.UserAPI/DeleteUser",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ScheduleAPIServer).DeleteUsers(ctx, req.(*DeleteUserRequest))
+		return srv.(UserAPIServer).DeleteUser(ctx, req.(*DeleteUserRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ScheduleAPI_ServiceDesc is the grpc.ServiceDesc for ScheduleAPI service.
+// UserAPI_ServiceDesc is the grpc.ServiceDesc for UserAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ScheduleAPI_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "users.ScheduleAPI",
-	HandlerType: (*ScheduleAPIServer)(nil),
+var UserAPI_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "users.UserAPI",
+	HandlerType: (*UserAPIServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "ListUsers",
-			Handler:    _ScheduleAPI_ListUsers_Handler,
+			Handler:    _UserAPI_ListUsers_Handler,
 		},
 		{
-			MethodName: "GetUsers",
-			Handler:    _ScheduleAPI_GetUsers_Handler,
+			MethodName: "GetUser",
+			Handler:    _UserAPI_GetUser_Handler,
 		},
 		{
-			MethodName: "CreateUsers",
-			Handler:    _ScheduleAPI_CreateUsers_Handler,
+			MethodName: "CreateUser",
+			Handler:    _UserAPI_CreateUser_Handler,
 		},
 		{
-			MethodName: "UpdateUsers",
-			Handler:    _ScheduleAPI_UpdateUsers_Handler,
+			MethodName: "UpdateUser",
+			Handler:    _UserAPI_UpdateUser_Handler,
 		},
 		{
-			MethodName: "DeleteUsers",
-			Handler:    _ScheduleAPI_DeleteUsers_Handler,
+			MethodName: "DeleteUser",
+			Handler:    _UserAPI_DeleteUser_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

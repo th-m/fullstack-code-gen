@@ -9,7 +9,7 @@ import "google/protobuf/duration.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 
-service ScheduleAPI {
+service UserAPI {
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_tag) = {
 		external_docs: {
 			url: "th-m.codes";
@@ -26,7 +26,7 @@ service ScheduleAPI {
 		};
     }
     
-    rpc GetUsers(GetUserRequest) returns(User) {
+    rpc GetUser(GetUserRequest) returns(User) {
         option (google.api.http) = {
             get : "/users/{id}"
         };
@@ -35,7 +35,7 @@ service ScheduleAPI {
 		};
     }
 
-    rpc CreateUsers(CreateUserRequest) returns (User) {
+    rpc CreateUser(CreateUserRequest) returns (User) {
         option (google.api.http) = {
             post : "/users"
             body : "*"
@@ -45,7 +45,7 @@ service ScheduleAPI {
 		};
     }
     
-    rpc UpdateUsers(UpdateUserRequest) returns (User) {
+    rpc UpdateUser(UpdateUserRequest) returns (User) {
         option (google.api.http) = {
             put : "/users/{user.id}"
             body : "*"
@@ -55,7 +55,7 @@ service ScheduleAPI {
 		};
     }    
 
-    rpc DeleteUsers(DeleteUserRequest) returns (google.protobuf.Empty) {
+    rpc DeleteUser(DeleteUserRequest) returns (google.protobuf.Empty) {
         option (google.api.http) = {
             delete : "/users/{id}"
         };
@@ -70,7 +70,7 @@ message ListUsersRequest {
 }
 
 message ListUsersResponse {
-  repeated User events = 1;
+  repeated User users = 1;
 }
 
 message GetUserRequest {

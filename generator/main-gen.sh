@@ -41,7 +41,7 @@ tmpOut="/tmp"
 goTmp=$tmpOut/go
 gatewayTmp=$tmpOut/gateways
 openapiTmp=$tmpOut/openapis
-graphqlTmp=$goTmp/graphql
+graphqlTmp=$goTmp/graph
 tsTmp=$tmpOut/ts
 
 ###
@@ -118,6 +118,11 @@ rm -rf $OUT/ts
 docker cp $gatewaycontainer:$tsTmp $OUT/ts
 print_success "replaced ts"
 
+mkdir -p $OUT/graph
+rm -rf $OUT/graph
+docker cp $gatewaycontainer:$graphqlTmp $OUT/graph
+print_success "replaced ts"
+
 ###
 ### Copy ts to src to be built
 ###
@@ -126,11 +131,11 @@ bash $builderPath/ts-to-src.sh
 ###
 ### Stop and remove running containers and shared volume
 # ###
-# docker stop $gatewaycontainer 
-# docker rm $gatewaycontainer
-# docker stop $opeanapicontainer 
-# docker rm $opeanapicontainer
-# docker stop $tscontainer 
-# docker rm $tscontainer
-# docker volume rm generated-code
+docker stop $gatewaycontainer 
+docker rm $gatewaycontainer
+docker stop $opeanapicontainer 
+docker rm $opeanapicontainer
+docker stop $tscontainer 
+docker rm $tscontainer
+docker volume rm generated-code
 print_success "shut down and removed docker containers"

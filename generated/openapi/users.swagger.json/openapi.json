@@ -8,7 +8,7 @@
     "url" : "/"
   } ],
   "tags" : [ {
-    "name" : "ScheduleAPI",
+    "name" : "UserAPI",
     "externalDocs" : {
       "description" : "This is an example swagger definition",
       "url" : "th-m.codes"
@@ -18,7 +18,7 @@
     "/users" : {
       "get" : {
         "tags" : [ "Users" ],
-        "operationId" : "ScheduleAPI_ListUsers",
+        "operationId" : "UserAPI_ListUsers",
         "parameters" : [ {
           "name" : "filters.id",
           "in" : "query",
@@ -63,7 +63,7 @@
       },
       "post" : {
         "tags" : [ "Users" ],
-        "operationId" : "ScheduleAPI_CreateUsers",
+        "operationId" : "UserAPI_CreateUser",
         "requestBody" : {
           "content" : {
             "application/json" : {
@@ -102,7 +102,7 @@
     "/users/{id}" : {
       "get" : {
         "tags" : [ "Users" ],
-        "operationId" : "ScheduleAPI_GetUsers",
+        "operationId" : "UserAPI_GetUser",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -138,7 +138,7 @@
       },
       "delete" : {
         "tags" : [ "Users" ],
-        "operationId" : "ScheduleAPI_DeleteUsers",
+        "operationId" : "UserAPI_DeleteUser",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -176,7 +176,7 @@
     "/users/{user.id}" : {
       "put" : {
         "tags" : [ "Users" ],
-        "operationId" : "ScheduleAPI_UpdateUsers",
+        "operationId" : "UserAPI_UpdateUser",
         "parameters" : [ {
           "name" : "user.id",
           "in" : "path",
@@ -267,7 +267,7 @@
       "usersListUsersResponse" : {
         "type" : "object",
         "properties" : {
-          "events" : {
+          "users" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/usersUser"

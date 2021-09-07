@@ -14,6 +14,6 @@ plugins:
   - name: openapiv2
     out: api
   - name: gql
-    out: graphql
+    out: graph
     opt:
       - paths=import

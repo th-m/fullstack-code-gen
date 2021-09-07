@@ -4,19 +4,19 @@
  */
 export interface paths {
     "/users": {
-        get: operations["ScheduleAPI_ListUsers"];
-        post: operations["ScheduleAPI_CreateUsers"];
+        get: operations["UserAPI_ListUsers"];
+        post: operations["UserAPI_CreateUser"];
     };
     "/users/{id}": {
-        get: operations["ScheduleAPI_GetUsers"];
-        delete: operations["ScheduleAPI_DeleteUsers"];
+        get: operations["UserAPI_GetUser"];
+        delete: operations["UserAPI_DeleteUser"];
     };
     "/users/{user.id}": {
-        put: operations["ScheduleAPI_UpdateUsers"];
+        put: operations["UserAPI_UpdateUser"];
     };
 }
 export interface operations {
-    ScheduleAPI_ListUsers: {
+    UserAPI_ListUsers: {
         parameters: {
             query: {
                 "filters.id"?: string;
@@ -34,7 +34,7 @@ export interface operations {
             };
         };
     };
-    ScheduleAPI_CreateUsers: {
+    UserAPI_CreateUser: {
         requestBody: {
             "application/json": components["schemas"]["usersCreateUserRequest"];
         };
@@ -49,7 +49,7 @@ export interface operations {
             };
         };
     };
-    ScheduleAPI_GetUsers: {
+    UserAPI_GetUser: {
         parameters: {
             path: {
                 id: string;
@@ -66,7 +66,7 @@ export interface operations {
             };
         };
     };
-    ScheduleAPI_DeleteUsers: {
+    UserAPI_DeleteUser: {
         parameters: {
             path: {
                 id: string;
@@ -85,7 +85,7 @@ export interface operations {
             };
         };
     };
-    ScheduleAPI_UpdateUsers: {
+    UserAPI_UpdateUser: {
         parameters: {
             path: {
                 "user.id": string;
@@ -121,7 +121,7 @@ export interface components {
             user?: components["schemas"]["usersUser"];
         };
         usersListUsersResponse: {
-            events?: components["schemas"]["usersUser"][];
+            users?: components["schemas"]["usersUser"][];
         };
         usersUpdateUserRequest: {
             user?: components["schemas"]["usersUser"];
