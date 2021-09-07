@@ -1,8 +1,5 @@
-
-weavePath="$GOPATH/src/weavelab.xyz"
-project="shared-proto-gateway"
-tsSrc=$weavePath/$project/src/
-cp -r $weavePath/$project/gen/ts/ $tsSrc
+org="th-m.codes"
+orgPath="$GOPATH/src/$org"
+project="fullstack-code-gen"
 
 npm run build
-# npm version patch

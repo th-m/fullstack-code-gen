@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "es2017"
+        ],
+        "module": "commonjs",
+        "noImplicitReturns": true,
+        "esModuleInterop": true,
+        "outDir": "typescript",
+        "sourceMap": true,
+        "target": "es5",
+        "declaration": true,
+        "types": [
+            "mocha",
+            "node",
+            "chai"
+        ]
+    },
+    "compileOnSave": true,
+    "include": [
+        "generated/ts"
+    ]
+}
