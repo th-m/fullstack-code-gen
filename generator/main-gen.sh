@@ -13,7 +13,9 @@ docker pull thomasvaladez/openapi-to-ts:0.1
 print_success "docker images ready to go"
 
 #NOTE: You will want to change this if you are trying to get it to work on your machine
-orgPath="$GOPATH/src/th-m.codes"
+org="th-m.codes"
+
+orgPath="$GOPATH/src/$org"
 project="fullstack-code-gen"
 builderDir="generator"
 
@@ -28,7 +30,7 @@ curDir=$(pwd)
 defDir="./"
 DIR=${1:-$defDir}
 
-OUT="gen"
+OUT="generated"
 
 ###
 ### Shared volume holds code as it moves through the generation pipeline
@@ -97,7 +99,7 @@ find $OUT -type f -name '*.pb.go' -delete
 find $OUT -type f -name '*.pb.gw.go' -delete
 find $OUT -type d -empty -delete
 
-docker cp $gatewaycontainer:$goTmp/weavelab.xyz/$project/$OUT/. $OUT/
+docker cp $gatewaycontainer:$goTmp/$org/$project/$OUT/. $OUT/
 print_success "replaced generated go"
 
 mkdir -p $OUT/swagger
@@ -121,12 +123,12 @@ bash $builderPath/ts-to-src.sh
 
 ###
 ### Stop and remove running containers and shared volume
-###
-docker stop $gatewaycontainer 
-docker rm $gatewaycontainer
-docker stop $opeanapicontainer 
-docker rm $opeanapicontainer
-docker stop $tscontainer 
-docker rm $tscontainer
-docker volume rm generated-code
+# ###
+# docker stop $gatewaycontainer 
+# docker rm $gatewaycontainer
+# docker stop $opeanapicontainer 
+# docker rm $opeanapicontainer
+# docker stop $tscontainer 
+# docker rm $tscontainer
+# docker volume rm generated-code
 print_success "shut down and removed docker containers"
