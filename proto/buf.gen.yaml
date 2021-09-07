@@ -13,3 +13,7 @@ plugins:
       - generate_unbound_methods=true
   - name: openapiv2
     out: api
+  - name: gql
+    out: graphql
+    opt:
+      - paths=import

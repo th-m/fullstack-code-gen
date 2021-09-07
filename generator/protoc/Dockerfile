@@ -1,10 +1,8 @@
-#####
-# This version of linux lets us get all things we want.
 FROM amd64/golang:1.16 as builder
 
 
 # Install / update basic utilities needed to build software
-RUN apt-get update && apt-get install -y bash=5.0-4 curl=7.64.0-4+deb10u2 git=1:2.20.1-2+deb10u3 unzip
+RUN apt-get update && apt-get install -y bash curl git unzip
 
 # Install Protoc 3.14
 RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/protoc-3.14.0-linux-x86_64.zip \
@@ -26,6 +24,12 @@ RUN go get -u github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway 
     && go get -u github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2 \
     && go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@latest \
     && go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest
+
+# # Install go-proto-gql
+RUN go get -u github.com/danielvladco/go-proto-gql/protoc-gen-gql \
+    && go get -u github.com/danielvladco/go-proto-gql/protoc-gen-gogql \
+    && go install github.com/danielvladco/go-proto-gql/protoc-gen-gql@v0.8.0 \
+    && go install github.com/danielvladco/go-proto-gql/protoc-gen-gogql@v0.8.0
 
 # Install Buff utilities go utils
 RUN GO111MODULE=on go get \

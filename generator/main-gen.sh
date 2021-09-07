@@ -2,7 +2,8 @@
 ###
 ### Set up script vars and utils
 ###
-export gatewayImage="thomasvaladez/proto-to-grpc-gatway:0.1"
+export gatewayImage="thomasvaladez/proto-to-http-gql:latest"
+# export gatewayImage="thomasvaladez/proto-to-grpc-gatway:0.1"
 export openapiImage="thomasvaladez/swagger2-to-openapi3:0.1"
 export tsImage="thomasvaladez/openapi-to-ts:0.1"
 
@@ -40,6 +41,7 @@ tmpOut="/tmp"
 goTmp=$tmpOut/go
 gatewayTmp=$tmpOut/gateways
 openapiTmp=$tmpOut/openapis
+graphqlTmp=$goTmp/graphql
 tsTmp=$tmpOut/ts
 
 ###
