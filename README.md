@@ -16,8 +16,8 @@ Here we have some go apps that will run the generated code.
 ## Typescript
 `/typescript` is a built output from `tsc` command. It is the TS all ready to be hosted in an NPM repo.
 
-## Postgres
-`/postgres` here we are defining `migrations` using `Goose` and  `queries`. Then we use `sqlc` to convert that to `go`
+## DB
+`/db` here we are defining `migrations` using `Goose` and  `queries`. Then we use `sqlc` to convert that to type safe `go` code.
 ## TODO
 
 - [ ] fix buf lint
