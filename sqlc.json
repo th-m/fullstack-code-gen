@@ -1,0 +1,19 @@
+{
+    "version": "1",
+    "packages": [
+      {
+        "name": "sqlc",
+        "emit_json_tags": true,
+        "emit_prepared_queries": false,
+        "path": "./generated/sqlc",
+        "queries": "./db/queries/",
+        "schema": "./db/migrations"
+      }
+    ],
+    "overrides": [
+    {
+        "column": "users.id",
+        "go_type": "string"
+      }
+    ]
+  }

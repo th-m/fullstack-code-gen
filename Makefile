@@ -1,8 +1,12 @@
 SHELL := /usr/bin/env bash -o pipefail
 .PHONY: gen lint wbuf
 
-gen:
+api-gen:
 	./generator/main-gen.sh ./proto
+
+sqlc-gen:
+	docker pull kjconroy/sqlc
+	docker run --rm -v `pwd`:/src -w /src kjconroy/sqlc generate
 
 lint:
 	./buff-util.sh ./proto lint 
