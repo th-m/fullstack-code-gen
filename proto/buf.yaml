@@ -1,0 +1,24 @@
+version: v1beta1
+build:
+    roots:
+    - ./weave
+    - ./apps
+lint:
+  use:
+    - BASIC
+    # - FILE_LOWER_SNAKE_CASE
+  except:
+  # These are all the basic rules monorail/protorepo was breaking
+    - FIELD_LOWER_SNAKE_CASE
+    - ENUM_NO_ALLOW_ALIAS
+    - IMPORT_NO_PUBLIC
+    - PACKAGE_AFFINITY
+    - PACKAGE_DIRECTORY_MATCH
+    - PACKAGE_SAME_DIRECTORY
+    - PACKAGE_SAME_GO_PACKAGE
+    - PACKAGE_DEFINED
+    - DIRECTORY_SAME_PACKAGE
+    - ENUM_VALUE_UPPER_SNAKE_CASE
+breaking:
+  use:
+    - WIRE_JSON

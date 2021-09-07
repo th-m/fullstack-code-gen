@@ -1,0 +1,102 @@
+syntax="proto3";
+
+package users;  
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/duration.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+
+service ScheduleAPI {
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_tag) = {
+		external_docs: {
+			url: "th-m.codes";
+			description: "This is an example swagger definition";
+		}
+	};
+
+    rpc ListUsers(ListUsersRequest) returns(ListUsersResponse) {
+        option (google.api.http) = {
+            get : "/users"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+			tags: "Users";
+		};
+    }
+    
+    rpc GetUsers(GetUsersRequest) returns(Users) {
+        option (google.api.http) = {
+            get : "/users/{id}"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+			tags: "Users";
+		};
+    }
+
+    rpc CreateUsers(CreateUsersRequest) returns (Users) {
+        option (google.api.http) = {
+            post : "/users"
+            body : "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+			tags: "Users";
+		};
+    }
+    
+    rpc UpdateUsers(UpdateUsersRequest) returns (Users) {
+        option (google.api.http) = {
+            put : "/users/{id}"
+            body : "*"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+			tags: "Users";
+		};
+    }    
+
+    rpc DeleteUsers(DeleteUsersRequest) returns (google.protobuf.Empty) {
+        option (google.api.http) = {
+            delete : "/users/{id}"
+        };
+        option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+			tags: "Users";
+		};
+    }
+}
+
+message ListUsersRequest {
+  User filters = 1;
+}
+
+message ListUsersResponse {
+  repeated User events = 1;
+}
+
+message GetUserRequest {
+  string id = 1;
+}
+
+message UpdateUserRequest {
+    User user = 1;
+}
+
+message CreateUserRequest {
+    User user = 1;
+}
+
+message DeleteUserRequest {
+  string id = 1;
+}
+
+// User holds details and datetime info for an event that does not repeat.
+message User {
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
+      json_schema: {
+              title: "User"
+              description: "This is a person who uses my app"
+          }
+          example: '{"id": "1", "name": "thom thom"}'
+    };
+    string id = 1;
+    string name = 2; 
+  }
