@@ -23,6 +23,7 @@ export interface operations {
       query: {
         "filters.id"?: string;
         "filters.name"?: string;
+        "filters.email"?: string;
       };
     };
     responses: {
@@ -131,6 +132,7 @@ export interface components {
     usersUser: {
       id?: string;
       name?: string;
+      email?: string;
     };
   };
 }

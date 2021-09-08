@@ -37,6 +37,15 @@
           "schema" : {
             "type" : "string"
           }
+        }, {
+          "name" : "filters.email",
+          "in" : "query",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -291,6 +300,9 @@
             "type" : "string"
           },
           "name" : {
+            "type" : "string"
+          },
+          "email" : {
             "type" : "string"
           }
         },

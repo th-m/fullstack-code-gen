@@ -49,6 +49,12 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "filters.email",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -252,6 +258,9 @@
           "type": "string"
         },
         "name": {
+          "type": "string"
+        },
+        "email": {
           "type": "string"
         }
       },
