@@ -5,7 +5,7 @@
         "name": "sqlc",
         "emit_json_tags": true,
         "emit_prepared_queries": false,
-        "path": "./generated/sqlc",
+        "path": "./internal/sqlc",
         "queries": "./db/queries/",
         "schema": "./db/migrations"
       }
