@@ -6,8 +6,8 @@ import (
 	"net"
 
 	"google.golang.org/grpc"
+	"th-m.codes/fullstack-code-gen/examples/grpc-server/internal/sqlc"
 	usersPB "th-m.codes/fullstack-code-gen/generated/go/services/users"
-	"th-m.codes/fullstack-code-gen/generated/sqlc"
 
 	"database/sql"
 	"fmt"

@@ -6,8 +6,8 @@ import (
 	"testing"
 
 	"github.com/DATA-DOG/go-sqlmock"
+	"th-m.codes/fullstack-code-gen/examples/grpc-server/internal/sqlc"
 	usersPB "th-m.codes/fullstack-code-gen/generated/go/services/users"
-	"th-m.codes/fullstack-code-gen/generated/sqlc"
 )
 
 func TestServer_Users(t *testing.T) {
