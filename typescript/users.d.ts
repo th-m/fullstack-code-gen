@@ -22,6 +22,7 @@ export interface operations {
                 "filters.id"?: string;
                 "filters.name"?: string;
                 "filters.email"?: string;
+                "filters.password"?: string;
             };
         };
         responses: {
@@ -132,6 +133,7 @@ export interface components {
             id?: string;
             name?: string;
             email?: string;
+            password?: string;
         };
     };
 }

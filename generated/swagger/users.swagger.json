@@ -55,6 +55,12 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "filters.password",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -261,6 +267,9 @@
           "type": "string"
         },
         "email": {
+          "type": "string"
+        },
+        "password": {
           "type": "string"
         }
       },

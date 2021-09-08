@@ -35,6 +35,7 @@ type User {
 	id: String
 	name: String
 	email: String
+	password: String
 }
 """
  User holds details and datetime info for an event that does not repeat.
@@ -44,4 +45,5 @@ input UserInput {
 	id: String
 	name: String
 	email: String
+	password: String
 }

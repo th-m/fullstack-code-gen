@@ -46,6 +46,15 @@
           "schema" : {
             "type" : "string"
           }
+        }, {
+          "name" : "filters.password",
+          "in" : "query",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -303,6 +312,9 @@
             "type" : "string"
           },
           "email" : {
+            "type" : "string"
+          },
+          "password" : {
             "type" : "string"
           }
         },
